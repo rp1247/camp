@@ -21,8 +21,8 @@
      <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% campground.forEach(function(campground){ %>
             <div class="col-md-3 col-sm-6">
-                <div class="thumbnail" id="#index">
-                    <img class="index_img" src="<%=campground.image%>">
+                <div class="thumbnail">
+                    <img src="<%=campground.image%>">
                     <h4><%=campground.name%></h4>
                     <% if(campground.rating == 0){ %>
                         <p><em>No Reviews Yet</em></p>

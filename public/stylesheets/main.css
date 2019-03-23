@@ -136,3 +136,12 @@ body{
 #flash{
     margin-top: 60px;
 }
+.thumbnail img {
+    width: 100%;
+}
+.btn{
+    margin-bottom: 10px;
+}
+.thumbnail {
+    padding: 0;
+}
