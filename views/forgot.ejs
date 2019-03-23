@@ -1,0 +1,18 @@
+<% include ./partials/header.js %>
+<div class="container">
+    <div class="row">
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/forgot" method="POST">
+                <div class="form-group">
+                    <label for="email">E-mail </label>
+                    <input id="email" class="form-control" type="text" name="email" placeholder="Enter E-mail" required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<% include ./partials/footer.js %>
+

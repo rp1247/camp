@@ -1,0 +1,20 @@
+<%include ./partials/header.js%>
+    <form action="/login" method="POST">
+        <div class="login-box">
+        <h1>Login</h1>
+        <div class="text-box">
+            <i class="fas fa-user"></i>
+            <input placeholder="Username" name="username" type="text" required>
+        </div>
+        <div class="text-box">
+            <i class="fas fa-lock"></i>
+            <input placeholder="Password" name="password" type="password" required>
+        </div>
+        <button class="button">Submit</button>
+        <div id="forgotPass">
+            <a href="/forgot">Forgot Password?</a>
+        </div>
+    </div>
+    </form>
+
+<%include ./partials/footer.js%>

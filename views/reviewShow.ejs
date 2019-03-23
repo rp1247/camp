@@ -1,0 +1,34 @@
+<% include ./partials/header.js %>
+<div class="container">
+    <h3><%=campground.name%></h3>
+    <div class="well">
+        <%if(campground.rating == 0){ %>
+            <p>No reviews yet.</p>
+        <% } else{%>
+            <p>Average Rating: <%=campground.rating%> out of 5 stars </p>
+        <% }%>
+        <% campground.review.forEach(function(review){ %>
+            <div class="row">
+                <div class="col-md-12">
+                    <strong><%= review.user.username %></strong>: 
+                    <%if(review.rating == 1){ %>
+                        <strong><%= review.rating%> star</strong>
+                    <% }else{ %>
+                        <strong><%= review.rating%> stars</strong>
+                    <% }%>
+                    <span class="pull-right"> <%= review.createdAt.toDateString() %></span>
+                    <p>
+                        <%= review.text %> 
+                    </p>
+                        <% if(currentUser && review.user.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-xs btn-warning" href="/campground/<%=campground.id%>/review/<%=review.id%>/update">Edit Review</a>
+                        <form  class="delete-form" method="POST" action="/campground/<%=campground.id%>/review/<%=review.id%>/delete/?_method=DELETE">
+                            <button class="btn btn-xs btn-danger">Delete Review</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+<% include ./partials/footer.js %>

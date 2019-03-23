@@ -1,0 +1,40 @@
+<% include ./partials/header.js %>
+ <div class="container">
+     <header class="jumbotron">
+         <div class="container">
+             <h1>Welcome To YelpCamp!</h1>
+             <p>View our hand-picked campgrounds from all over the world</p>
+             <p>
+                <a class="btn btn-primary btn-large" href="/campground/new">Add a New CampSite</a>
+             </p>
+             <p>
+                 <form class="form-inline" action="/campground" method="GET">
+                     <div class="form-group">
+                         <input type="text" placeholder="Search Campgrounds" name="campground" class="form-control">
+                         <input type="button" value="Search" class="btn btn-default">
+                     </div>
+                 </form>
+             </p>
+         </div>
+     </header>
+     
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% campground.forEach(function(campground){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail" id="#index">
+                    <img class="index_img" src="<%=campground.image%>">
+                    <h4><%=campground.name%></h4>
+                    <% if(campground.rating == 0){ %>
+                        <p><em>No Reviews Yet</em></p>
+                    <% }else{ %>
+                        <p><em>Rated <%=campground.rating%> out of 5 stars</em></p>
+                    <% }%>
+                    <p><%=campground.description.substr(0,100)%></p>
+                    <a href="campground/<%=campground._id%>"><button class="btn btn-md btn-primary">More Info</button></a>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<% include ./partials/footer.js %>

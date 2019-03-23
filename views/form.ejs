@@ -1,0 +1,36 @@
+<%include ./partials/header.js%>
+
+<div class="container">
+    <form name="val" class="form-group col-lg-12 col-sm-12" action="/campground" onsubmit="return validateForm()" method="POST">
+        <label for="title">Title: </label>
+        <input type="text" class="form-control" id="title" name="name" required>
+        <label for="price">Price: </label>
+        <input type="number" class="form-control" id="price" name="price" min="0.01" step="0.01" required>
+        <label for="image">Image URL: </label>
+        <input type="url" class="form-control" id="image" name="image" required>
+        <label for="location">Location: </label>
+        <input type="text" class="form-control" id="location" name="location" required>
+        <label for="description">Description: </label>
+        <textarea rows="12" cols="50" class="form-control" id="description" name="description" required></textarea>
+        <button id="button" class="btn btn-lg btn-primary" >Submit</button>
+    </form>
+</div>
+<script>
+function validateForm(){
+    var title = document.forms["val"]["name"];
+    var price = document.forms["val"]["price"];
+    var image = document.forms["val"]["image"];
+    var location = document.forms["val"]["location"];
+    var description = document.forms["val"]["description"];
+    
+    if(title.value == ""){
+        window.alert("Please enter your name."); 
+        name.focus(); 
+        return false;
+    }
+    return true;
+}
+    
+</script>
+
+<%include ./partials/footer.js%>
