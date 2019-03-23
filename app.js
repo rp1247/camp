@@ -46,7 +46,7 @@ app.use(passport.session());
 passport.use(new localStratergy(user.authenticate()));
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
-mongoose.connect("mongodb://localhost:27017/Camp_DB", { useNewUrlParser: true }); 
+mongoose.connect("mongodb+srv://rp1247:Kingkong007!@ycluster-jwv5q.mongodb.net/test?retryWrites=true"); 
 var campground = require("./models/campground.js");
 var comment = require("./models/comment.js");
 var review = require("./models/review.js");
