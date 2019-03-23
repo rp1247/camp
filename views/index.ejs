@@ -30,7 +30,7 @@
                         <p><em>Rated <%=campground.rating%> out of 5 stars</em></p>
                     <% }%>
                     <p><%=campground.description.substr(0,100)%></p>
-                    <a href="campground/<%=campground._id%>"><button class="btn btn-md btn-primary">More Info</button></a>
+                    <a href="campground/<%=campground._id%>"><button id="btn" class="btn btn-md btn-primary">More Info</button></a>
                 </div>
             </div>
         <% }); %>
