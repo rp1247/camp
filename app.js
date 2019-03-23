@@ -46,7 +46,7 @@ app.use(passport.session());
 passport.use(new localStratergy(user.authenticate()));
 passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
-mongoose.connect("mongodb+srv://rp1247:Kingkong007!@ycluster-jwv5q.mongodb.net/test?retryWrites=true"); 
+mongoose.connect("mongodb+srv://rp1247:Kingkong007!@ycluster-jwv5q.mongodb.net/test?retryWrites=true",{ useNewUrlParser: true }); 
 var campground = require("./models/campground.js");
 var comment = require("./models/comment.js");
 var review = require("./models/review.js");
@@ -58,7 +58,7 @@ app.get("/", function(req,res){
 app.get("/campground/new",middleware.isLoggedIn,function(req,res){
     res.render("form.ejs",{currentUser:req.user});
 });
-//CREATE - add new campground to DB
+
 app.post("/campground", middleware.isLoggedIn, function(req, res){
   // get data from form and add to campgrounds array
   var name = req.body.name;
